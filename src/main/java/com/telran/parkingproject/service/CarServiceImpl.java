@@ -5,6 +5,7 @@ import com.telran.parkingproject.model.Car;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -23,7 +24,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car getCar(int id) {
-        return null;
+        Optional<Car> car = carJpaRepository.findById(id);
+        return car.orElse(null);
     }
 
     @Override
